@@ -9,6 +9,6 @@ module.exports = app => {
     app.use("/", authRoutes)
 
     const tripRoutes = require('./trip.routes');
-    app.use("/", tripRoutes)
+    app.use("/guia-viajes", tripRoutes)
 
 }
