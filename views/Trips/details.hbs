@@ -1,0 +1,19 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+        <div class="card">
+            {{!-- <img src="..." class="card-img-top" alt="..."> --}}
+            <div class="card-body">
+                <h5 class="card-title"> Pais de destino:{{country}}</h5>
+                <p> Cuidad de destino : {{city}}</p>
+                <p> Fecha de salida : {{date}}</p>
+                <p class="card-text"> Descripcion: {{description}}</p>
+
+            </div>
+            <a href="/guia-viajes/editar/{{_id}}" class="btn btn-dark"> Editar </a>
+
+            <form action="/guia-viajes/eliminar/{{_id}}" method="POST">
+                <input type="submit" value="eliminar" class="btn btn-danger">
+            </form>
+        </div>
+    </div>
+</div>

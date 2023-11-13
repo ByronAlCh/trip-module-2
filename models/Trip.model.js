@@ -26,6 +26,7 @@ const tripSchema = new Schema(
             type: String,
             max: 100
         },
+
     },
     {
         timestamps: true

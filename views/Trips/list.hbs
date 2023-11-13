@@ -1,9 +1,27 @@
-<div class="container">
-    <h1> Lista de viajes</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+        {{#each trips}}
+        <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{country}}</h5>
+                <p class="card-text">{{description}}</p>
+            </div>
+            <a href="/guia-viajes/detalles/{{_id}}" class="btn btn-dark"> Ver detalles </a>
+        </div>
+        {{/each}}
 
-    <a href="/guia-viajes/crear"> Crear viaje </a>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"> Crear viajes</h5>
+            </div>
+            <a href="/guia-viajes/crear" class="btn btn-dark"> Crear </a>
+        </div>
 
-
+    </div>
 
 
 
