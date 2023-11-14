@@ -35,9 +35,9 @@ const userSchema = new Schema(
     },
 
     cover: {
-      type: String,
-
+      type: String
     },
+
     role: {
       type: String,
       enum: ['USER', 'ADMIN', 'EDITOR'],

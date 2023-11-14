@@ -3,6 +3,7 @@ const router = express.Router()
 
 const User = require('./../models/User.model')
 const { isLoggedIn, checkRole } = require('../middleware/route-guard')
+const uploaderMiddleware = require('./../middleware/uploader.middleware')
 
 router.get("/perfil", isLoggedIn, (req, res, next) => {
 
@@ -18,7 +19,12 @@ router.get("/perfil", isLoggedIn, (req, res, next) => {
         .catch(err => next(err))
 })
 
-router.get('/listado', isLoggedIn, (req, res, next) => {
+router.get("/admin", isLoggedIn, checkRole('ADMIN'), (req, res) => {
+
+    res.render("user/admin-panel", { user: req.session.currentUser })
+})
+
+router.get('/listado', isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
 
     User
         .find()
@@ -31,12 +37,44 @@ router.get('/listado', isLoggedIn, (req, res, next) => {
         .catch(err => next(err))
 })
 
+router.get('/perfil/editar', isLoggedIn, (req, res, next) => {
 
+    const user = req.session.currentUser
 
-
-router.get("/admin", isLoggedIn, checkRole('ADMIN'), (req, res) => {
-
-    res.render("user/admin-panel", { user: req.session.currentUser })
+    User
+        .findById(user._id)
+        .then(user => res.render('user/edit', user))
+        .catch(err => next(err))
 })
+
+router.post('/perfil/editar', isLoggedIn, (req, res, next) => {
+
+    const { name, username, email } = req.body
+    const user = req.session.currentUser
+
+    User
+        .findByIdAndUpdate(user._id, { name, username, email })
+        .then(() => res.redirect('/perfil'))
+        .catch(err => next(err))
+
+})
+
+
+
+router.post('/eliminar/:_id', (req, res, next) => {
+
+    const { _id } = req.params
+
+    User
+        .findByIdAndDelete(_id)
+        .then(() => res.redirect('/listado'))
+        .catch(err => next(err))
+
+})
+
+
+
+
+
 
 module.exports = router
