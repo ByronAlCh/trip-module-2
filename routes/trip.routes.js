@@ -6,5 +6,9 @@ router.get('/', (req, res, next) => {
 })
 
 
+router.get("/map", (req, res, next) => {
+    res.render('map/map');
+})
+
 
 module.exports = router

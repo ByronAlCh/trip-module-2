@@ -34,10 +34,11 @@ const userSchema = new Schema(
 
     },
 
-    avatar: {
-      type: String,
-      default: 'images/default-avatar.png'
+
+    cover: {
+      type: String
     },
+
 
     role: {
       type: String,

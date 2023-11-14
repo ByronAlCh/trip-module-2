@@ -1,6 +1,8 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
+  font-weight: 200;
 }
 
 a {
@@ -9,4 +11,9 @@ a {
 
 h1 {
   color: 15px;
+}
+
+#myMap {
+  height: 400px;
+  background-color: red;
 }

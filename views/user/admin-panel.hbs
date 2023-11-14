@@ -1,3 +1,10 @@
 <div class="container">
-    <h1>Estás aquí porque eres {{user.role}}</h1>
+    <h1>Bienvenido {{user.role}}</h1>
+    <hr>
 </div>
+{{#each user}}
+<div>
+    <h3>{{name}}</h3>
+    <img src="{{cover}}" alt="">
+</div>
+{{/each}}
