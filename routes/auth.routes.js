@@ -62,4 +62,6 @@ router.get('/cerrar-sesion', (req, res, next) => {
     req.session.destroy(() => res.redirect('/'))
 })
 
+
+
 module.exports = router
