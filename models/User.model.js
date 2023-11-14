@@ -33,8 +33,10 @@ const userSchema = new Schema(
       require: [true, 'La edad es obligatoria'],
 
     },
-    cover: {
-      type: String
+
+    avatar: {
+      type: String,
+      default: 'images/default-avatar.png'
     },
 
 
