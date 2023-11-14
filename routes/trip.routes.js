@@ -56,15 +56,11 @@ router.post('/editar/:_id', isLoggedIn, (req, res, next) => {
     const { _id: owner } = req.params
 
     Trip
-        .findByIdAndUpdate(owner, { country, city, minimumAge, date, description })
+        .findByIdAndUpdate(owner, { country, city, minimumAge, date, description, owner })
+        .populate('owner')
         .then(() => res.redirect(`/detalles/${owner}`))
         .catch(err => next(err))
 })
-
-
-
-// .populate('owner')
-
 
 
 router.post('/eliminar/:_id', isLoggedIn, (req, res, next) => {
