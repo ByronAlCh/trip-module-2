@@ -1,6 +1,58 @@
-<div class="container">
+<div class="text-center">
+    <div class="row align-items-start">
+        <div class="col">
+            <div class="container mb-5">
+                <label for="exampleDataList" class="form-label"> Listado de paises</label>
+                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder=" Buscar paises...">
 
-    <h3>Lista de paises</h3>
+                <datalist id="datalistOptions">
+                    <option value="Alemania">
+                    <option value="Belgica">
+                    <option value="Francia">
+                    <option value="España">
+                    <option value="Portugal">
+                </datalist>
+            </div>
 
+            <div class="card mb-5 ">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional
+                        content.
+                        This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
 
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"> Cuidad</h5>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"> Cuidad</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="position-relative">
+                <figure id="myMap"></figure>
+            </div>
+        </div>
+        {{!--
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> --}}
+        <script src="/js/map.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?callback=init&key="></script>
+
+    </div>
+</div>
 </div>

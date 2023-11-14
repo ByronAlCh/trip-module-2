@@ -34,12 +34,10 @@ const userSchema = new Schema(
 
     },
 
-    avatar: {
+    cover: {
       type: String,
-      default: 'images/default-avatar.png'
+
     },
-
-
     role: {
       type: String,
       enum: ['USER', 'ADMIN', 'EDITOR'],
