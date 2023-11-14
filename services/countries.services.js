@@ -4,14 +4,26 @@ class CountriesService {
 
     constructor() {
         this.axiosApp = axios.create({
-            baseURL: 'https://api.countrystatecity.in/v1/'
+            baseURL: 'https://api.countrystatecity.in/v1',
+            headers: {
+                'X-CSCAPI-KEY': process.env.API_KEY_COUNTRIES
+            }
         })
-
-
     }
+
+    getAllCountries() {
+        return this.axiosApp.get('/countries')
+    }
+
+    getCountryDetails(iso2) {
+        return this.axiosApp.get(`/countries/${iso2}`)
+    }
+
+
+
 }
 
+const countriesService = new CountriesService()
 
-const CountriesService = new CountriesService()
+module.exports = countriesService
 
-module.exports = CountriesService
