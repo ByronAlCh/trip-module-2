@@ -3,6 +3,7 @@
         <div class="card">
             {{!-- <img src="..." class="card-img-top" alt="..."> --}}
             <div class="card-body">
+                <p>{{owner._id}}</p>
                 <h5 class="card-title"> Pais de destino:{{country}}</h5>
                 <p> Cuidad de destino : {{city}}</p>
                 <p> Fecha de salida : {{date}}</p>
@@ -11,9 +12,13 @@
             </div>
             <a href="/guia-viajes/editar/{{_id}}" class="btn btn-dark"> Editar </a>
 
+
             <form action="/guia-viajes/eliminar/{{_id}}" method="POST">
                 <input type="submit" value="eliminar" class="btn btn-danger">
             </form>
         </div>
+        <form action="/guia-viajes/apuntarse/{{_id}}" method="GET">
+            <input type="submit" value="Apuntarse" class="btn btn-warning">
+        </form>
     </div>
 </div>

@@ -39,17 +39,17 @@
             <div class="container mb-5">
                 <div>
                     {{#each trips}}
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
+                    <div class="card mb-4">
                         <div class="card-body">
-                            <h5 class="card-title">{{country}}</h5>
-                            <p class="card-text">{{description}}</p>
+                            <h3 class="card-title"><strong>PAÍS: </strong> {{country}}</h3>
+                            <h4 class="card-title"><strong>CIUDAD: </strong> {{city}}</h4>
+                            <h5 class="card-title"><strong>EDAD MINIMA RECOMENDADA: </strong> {{minimumAge}}</h5>
+                            <h5 class="card-text"><strong>DESCRIPCION DEL EVENTO: </strong> {{description}}</h5>
                         </div>
                         <a href="/guia-viajes/detalles/{{_id}}" class="btn btn-dark"> Ver detalles </a>
                     </div>
                     {{/each}}
                     <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"> Crear viajes</h5>
                         </div>
