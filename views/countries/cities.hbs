@@ -1,16 +1,8 @@
-{{!-- {{#each allDetails}}
-<p>{{capital}}</p>
-
-{{/each}} --}}
-
-
-
-
 <div class="text-center">
     <div class="row align-items-start">
         <div class="col">
             <div class="container mb-5">
-                <label for="exampleDataList" class="form-label"> Detalles Paises</label>
+                <label for="exampleDataList" class="form-label"> Listado de paises</label>
                 <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder=" Buscar paises...">
 
                 <datalist id="datalistOptions">
@@ -21,7 +13,6 @@
                     <option value="Portugal">
                 </datalist>
             </div>
-
             <div class="card mb-5 ">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
@@ -34,18 +25,21 @@
                 </div>
             </div>
 
-            <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
                 <div class="card">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title"> Cuidad</h5>
+                        <h5 class="card-title"> Cuidades</h5>
                     </div>
                 </div>
 
+            </div>
+            <div>
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="" class="card-img-top" alt="...">
+                    {{!-- <h5>{{emoji}}</h5> --}}
                     <div class="card-body">
-                        <h5 class="card-title"> Cuidad</h5>
+                        <h5 class="card-title"> Cuidades </h5>
                     </div>
                 </div>
             </div>
@@ -59,9 +53,10 @@
 
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="/js/map.js"></script>
-        <script src=""></script>
+        <script src="/services/countries.services.js"></script>
         <script
             src="https://maps.googleapis.com/maps/api/js?callback=init&key=AIzaSyBpaXfuU2S1S4KFhTCwvA_-bEWCozOAIzI"></script>
 
     </div>
+</div>
 </div>
