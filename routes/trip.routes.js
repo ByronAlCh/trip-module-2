@@ -18,9 +18,10 @@ router.get('/detalles/:_id', isLoggedIn, (req, res, next) => {
 
     const { _id: owner } = req.params
 
+
     Trip
         .findById(owner)
-        .populate('owner')
+        .populate('attendees')
         .then(trips => res.render('trips/details.hbs', trips))
         .catch(err => next(err))
 })
@@ -33,7 +34,7 @@ router.get('/crear', isLoggedIn, (req, res, next) => {
 router.post('/crear', isLoggedIn, (req, res, next) => {
 
     const { country, city, minimumAge, date, description, latitude, longitude } = req.body
-    const { _id: owner } = req.session.currentUser
+
 
     const location = {
         type: 'Point',
@@ -73,7 +74,7 @@ router.post('/editar/:_id', isLoggedIn, (req, res, next) => {
 })
 
 
-router.get("/guia-viajes/apuntarse/:id_trip", isLoggedIn, (req, res, next) => {
+router.post("/apuntarse/:id_trip", isLoggedIn, (req, res, next) => {
 
     const { id_trip } = req.params
 
@@ -82,7 +83,7 @@ router.get("/guia-viajes/apuntarse/:id_trip", isLoggedIn, (req, res, next) => {
     Trip
         .findByIdAndUpdate(id_trip, { $push: { attendees: idUser } })
 
-        .then(() => console.log(idUser))
+        .then(() => res.redirect(`/guia-viajes/detalles/${id_trip}`))
         .catch(err => next(err))
 })
 

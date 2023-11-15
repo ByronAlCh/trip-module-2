@@ -3,7 +3,6 @@ const router = express.Router();
 
 const countriesService = require('../services/countries.services')
 
-/* GET home page */
 router.get("/", (req, res, next) => {
     countriesService
         .getAllCountries()

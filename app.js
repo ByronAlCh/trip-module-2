@@ -1,18 +1,10 @@
 // ℹ️ Gets access to environment variables/settings
 
 require("dotenv").config();
-
-
 require("./db");
 
-
-
 const express = require("express");
-
-
-
-const hbs = require("hbs");
-
+const hbs = require("hbs")
 const app = express();
 
 
