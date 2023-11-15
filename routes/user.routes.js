@@ -6,7 +6,6 @@ const { isLoggedIn, checkRole } = require('../middleware/route-guard')
 const uploaderMiddleware = require('./../middleware/uploader.middleware')
 
 router.get("/perfil", isLoggedIn, (req, res, next) => {
-
     const user = req.session.currentUser
 
     User
@@ -38,7 +37,6 @@ router.get('/listado', isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
 })
 
 router.get('/perfil/editar', isLoggedIn, (req, res, next) => {
-
     const user = req.session.currentUser
 
     User
@@ -48,7 +46,6 @@ router.get('/perfil/editar', isLoggedIn, (req, res, next) => {
 })
 
 router.post('/perfil/editar', isLoggedIn, (req, res, next) => {
-
     const { name, username, email } = req.body
     const user = req.session.currentUser
 
@@ -56,13 +53,9 @@ router.post('/perfil/editar', isLoggedIn, (req, res, next) => {
         .findByIdAndUpdate(user._id, { name, username, email })
         .then(() => res.redirect('/perfil'))
         .catch(err => next(err))
-
 })
 
-
-
 router.post('/eliminar/:_id', (req, res, next) => {
-
     const { _id } = req.params
 
     User
