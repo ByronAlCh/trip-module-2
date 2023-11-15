@@ -19,6 +19,11 @@ class CountriesService {
         return this.axiosApp.get(`/countries/${iso2}`)
     }
 
+    getCountryStates(iso2) {
+        return this.axiosApp.get(`/countries/${iso2}/states`)
+
+    }
+
 
 
 }

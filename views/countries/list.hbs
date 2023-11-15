@@ -9,23 +9,31 @@
             <div class="container mb-5">
                 <label for="exampleDataList" class="form-label"> Listado de paises</label>
                 <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder=" Buscar paises...">
-
                 <datalist id="datalistOptions">
-                    <option value="Alemania">
-                    <option value="Belgica">
-                    <option value="Francia">
-                    <option value="España">
-                    <option value="Portugal">
+                    {{#each reponses}}
+                    <option value="{{name}}">
+                        {{/each}}
                 </datalist>
+
+
+                {{!-- <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+                    <option selected>Selecciona Pais</option>
+                    {{#each reponses}}
+                    <option value="1">{{name}}</option>
+                    {{/each}}
+                </select> --}}
             </div>
 
             <div>
-                {{#each allCountries}}
+                {{#each reponses}}
+
                 <div class="card">
-                    <img src="" class="card-img-top" alt="...">
-                    {{!-- <h5>{{emoji}}</h5> --}}
+
                     <div class="card-body">
+                        <h1>{{emoji}}</h1>
                         <h5 class="card-title"> {{name}}</h5>
+                        <p class="card-text"> {{capital}}</p>
+                        <a href="/paises/{{iso2}}/estados" class="btn btn-dark"> Detalles</a>
                     </div>
                 </div>
                 {{/each}}

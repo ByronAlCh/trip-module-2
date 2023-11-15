@@ -30,12 +30,13 @@ router.get('/crear', isLoggedIn, (req, res, next) => {
 router.post('/crear', isLoggedIn, (req, res, next) => {
 
     const { country, city, minimumAge, date, description, latitude, longitude } = req.body
+    const { _id: owner } = req.session.currentUser
 
     const location = {
         type: 'Point',
         coordinates: [longitude, latitude]
     }
-    const { _id: owner } = req.session.currentUser
+
 
     Trip
         .create({ country, city, minimumAge, date, description, owner, location })
