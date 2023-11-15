@@ -5,28 +5,19 @@ const countriesService = require('../services/countries.services')
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-    // res.render("countries/list.hbs")
     countriesService
         .getAllCountries()
         .then(({ data }) => {
+            const promises = data.map(country =>
+                countriesService.getCountryDetails(country.iso2)
+            )
 
-            // console.log("ESTOS SON TODOS LOS PAISES----------------------------", data[0])
-            data.map(elm => {
-                countriesService
-                    .getCountryDetails(elm.iso2)
-                    .then(({ data }) => {
+            return Promise.all(promises)
+        }).then(reponses => {
+            const countriesData = reponses.map(response => response?.data)
 
-                        console.log("---------------------------", data)
-
-                    })
-                    .catch(err => next(err))
-            })
-            // console.log("------------------------------------------------", data.forEach(elm => elm.iso2))
-
-            // res.render("countries/list", { allCountries: data })
+            res.send(countriesData)
         })
-        .catch(err => next(err))
-
 });
 
 

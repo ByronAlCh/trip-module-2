@@ -1,4 +1,4 @@
-<div class="row row-cols-1 row-cols-md-3 g-4">
+{{!-- <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
         {{#each trips}}
         <div class="card">
@@ -21,8 +21,55 @@
             <a href="/guia-viajes/crear" class="btn btn-dark"> Crear </a>
         </div>
 
-    </div>
+    </div> --}}
 
 
 
+    {{!--
+</div> --}}
+
+<div class="container">
+    <h1>Lugares a Visitar </h1>
+    <hr>
 </div>
+
+<div class="text-center">
+    <div class="row align-items-start">
+        <div class="col">
+            <div class="container mb-5">
+                <div>
+                    {{#each trips}}
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{country}}</h5>
+                            <p class="card-text">{{description}}</p>
+                        </div>
+                        <a href="/guia-viajes/detalles/{{_id}}" class="btn btn-dark"> Ver detalles </a>
+                    </div>
+                    {{/each}}
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"> Crear viajes</h5>
+                        </div>
+                        <a href="/guia-viajes/crear" class="btn btn-dark"> Crear </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="position-relative">
+                <figure id="map"></figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/tripMap.js"></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?callback=init&key=AIzaSyBpaXfuU2S1S4KFhTCwvA_-bEWCozOAIzI"></script>

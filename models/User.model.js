@@ -11,13 +11,13 @@ const userSchema = new Schema(
     username: {
       type: String,
       trim: true,
-      required: true,
+      required: [true, 'El nombre de usuario es obligatorio'],
       unique: true
     },
 
     email: {
       type: String,
-      required: true,
+      required: [true, 'El email es obligartorio'],
       unique: true,
       lowercase: true,
       trim: true
@@ -35,7 +35,8 @@ const userSchema = new Schema(
     },
 
     cover: {
-      type: String
+      type: String,
+      required: false
     },
 
     role: {

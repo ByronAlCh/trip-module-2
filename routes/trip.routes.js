@@ -28,11 +28,17 @@ router.get('/crear', isLoggedIn, (req, res, next) => {
 })
 
 router.post('/crear', isLoggedIn, (req, res, next) => {
-    const { country, city, minimumAge, date, description } = req.body
+
+    const { country, city, minimumAge, date, description, latitude, longitude } = req.body
+
+    const location = {
+        type: 'Point',
+        coordinates: [longitude, latitude]
+    }
     const { _id: owner } = req.session.currentUser
 
     Trip
-        .create({ country, city, minimumAge, date, description, owner })
+        .create({ country, city, minimumAge, date, description, owner, location })
         .then(() => res.redirect('/guia-viajes'))
         .catch(err => next(err))
 
@@ -75,7 +81,8 @@ router.post('/eliminar/:_id', isLoggedIn, (req, res, next) => {
 })
 
 router.get("/map", (req, res, next) => {
-    res.render('map/map');
+    // res.send('Aqui va a ir el mapa')
+    res.render('trips/list.hbs')
 })
 
 
