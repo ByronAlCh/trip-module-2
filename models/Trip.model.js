@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const User = require("./User.model");
 
 const tripSchema = new Schema(
     {
@@ -26,7 +27,6 @@ const tripSchema = new Schema(
             type: String,
             max: 100
         },
-
         location: {
             type: {
                 type: String
@@ -34,7 +34,12 @@ const tripSchema = new Schema(
             coordinates: {
                 type: [Number]
             }
-        }
+        },
+        attendees: [{
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }]
+
 
     },
     {

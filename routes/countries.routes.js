@@ -11,9 +11,9 @@ router.get("/", (req, res, next) => {
             const promises = data.map(country =>
                 countriesService.getCountryDetails(country.iso2)
             )
-
             return Promise.all(promises)
-        }).then(reponses => {
+        })
+        .then(reponses => {
             const countriesData = reponses.map(response => response?.data)
 
             // res.send(countriesData)
