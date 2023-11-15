@@ -3,6 +3,7 @@ const router = express.Router()
 
 const Trip = require('./../models/Trip.model')
 const User = require('./../models/User.model')
+const Comment = require('./../models/Comments.model')
 
 const { isLoggedIn } = require('../middleware/route-guard')
 
@@ -25,15 +26,11 @@ router.get('/detalles/:_id', isLoggedIn, (req, res, next) => {
 })
 
 
-
-
 router.get('/crear', isLoggedIn, (req, res, next) => {
     res.render('trips/create.hbs')
 })
 
 router.post('/crear', isLoggedIn, (req, res, next) => {
-
-    const { _id: owner } = req.session.currentUser
 
     const { country, city, minimumAge, date, description, latitude, longitude } = req.body
     const { _id: owner } = req.session.currentUser
@@ -87,6 +84,24 @@ router.get("/guia-viajes/apuntarse/:id_trip", isLoggedIn, (req, res, next) => {
 
         .then(() => console.log(idUser))
         .catch(err => next(err))
+})
+
+
+
+router.get('/guia-viajes/comentar/:_id', (req, res, next) => {
+
+    const { _id: id_trip } = req.params
+
+    Comment
+
+        .findById(id_trip)
+        .then(() => res.send(id_trip))
+        .catch(err => next(err))
+
+
+
+
+
 })
 
 

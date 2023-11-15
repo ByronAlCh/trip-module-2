@@ -22,7 +22,7 @@ require("./config/session.config")(app)
 const capitalize = require("./utils/capitalize");
 const projectName = "Project-Trips";
 
-app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
+app.locals.appTitle = `${capitalize(projectName)}`;
 
 
 require("./routes")(app)

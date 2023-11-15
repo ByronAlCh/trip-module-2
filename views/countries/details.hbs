@@ -6,9 +6,36 @@
 <div class="text-center">
     <div class="row align-items-start">
         <div class="col">
-            <div class="container mb-5">
+            {{!-- <div class="container mb-5">
                 <label for="exampleDataList" class="form-label"> Detalles Paises</label>
                 <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder=" Buscar paises...">
+                --}}
+
+                <div class="input-group mb-3">
+                    <input type="text" class="exampleDataList" placeholder=" Buscar paises..."
+                        aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+
+                    <datalist id="datalistOptions">
+                        <option value="Alemania">
+                        <option value="Belgica">
+                        <option value="Francia">
+                        <option value="España">
+                        <option value="Portugal">
+                    </datalist>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
 
                 <datalist id="datalistOptions">
                     <option value="Alemania">
@@ -17,7 +44,8 @@
                     <option value="España">
                     <option value="Portugal">
                 </datalist>
-            </div>
+                {{!--
+            </div> --}}
 
             <div class="card mb-5 ">
                 <img src="..." class="card-img-top" alt="...">
