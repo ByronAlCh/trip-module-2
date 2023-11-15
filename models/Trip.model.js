@@ -27,11 +27,22 @@ const tripSchema = new Schema(
             max: 100
         },
 
+        location: {
+            type: {
+                type: String
+            },
+            coordinates: {
+                type: [Number]
+            }
+        }
+
     },
     {
         timestamps: true
     }
 );
+
+tripSchema.index({ location: '2dsphere' })
 
 const Trip = model("Trip", tripSchema);
 

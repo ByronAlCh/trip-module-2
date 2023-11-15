@@ -15,9 +15,7 @@ module.exports = app => {
     const apiRoutes = require('./api.routes')
     app.use('/api', apiRoutes)
 
-    // const trytrip = require('./trytrip.routes') // prueba de mapa
-    // app.use('/', trytrip)
-
     const countriesRoutes = require('./countries.routes')
     app.use('/paises', countriesRoutes)
+
 }
