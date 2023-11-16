@@ -8,28 +8,22 @@ const Comment = require('./../models/Comments.model')
 const { isLoggedIn } = require('../middleware/route-guard')
 
 router.get('/', (req, res, next) => {
+
     Trip
         .find()
         .then(trips => res.render('trips/list.hbs', { trips }))
         .catch(err => next(err))
 })
 
-router.post('/', (req, res, next) => {
-
-    const { name } = req.body
-    Trip
-        .find(name)
-        .then(trips => res.redirect('/listado', { trips }))
-        .catch(err => next(err))
-})
 
 router.get('/detalles/:_id', isLoggedIn, (req, res, next) => {
+
     const { _id: owner } = req.params
 
     Trip
         .findById(owner)
         .populate('attendees')
-        .then(trips => res.render('trips/details.hbs', trips))
+        .then(trip => res.render('trips/details.hbs', trip))
         .catch(err => next(err))
 })
 
@@ -48,12 +42,7 @@ router.post('/crear', isLoggedIn, (req, res, next) => {
     }
 
     Trip
-<<<<<<< HEAD
         .create({ country, city, minimumAge, date, namePlace, description, location, owner })
-=======
-
-        .create({ country, city, minimumAge, date, namePlace, description, location })
->>>>>>> e1e0a14a83cd15e6d1ac373a1b3ab37c74640e8c
         .then(() => res.redirect('/guia-viajes'))
         .catch(err => next(err))
 
@@ -92,8 +81,10 @@ router.post('/eliminar/:_id', isLoggedIn, (req, res, next) => {
 })
 
 router.post("/apuntarse/:id_trip", isLoggedIn, (req, res, next) => {
-    const user = req.session.currentUser
+
+    const { currentUser: user } = req.session
     const { id_trip } = req.params
+
     Trip
         .findById(id_trip)
         .then(trip => {
@@ -128,6 +119,7 @@ router.get('/guia-viajes/comentar/:_id', (req, res, next) => {
 })
 
 router.post('/eliminar/:_id', isLoggedIn, (req, res, next) => {
+
     const { _id: owner } = req.params
 
     Trip

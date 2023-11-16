@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Trip = require('../models/Trip.model')
 
-router.get("/trip", (req, res, next) => {
+router.get("/trip", (req, res) => {
 
     Trip
         .find()

@@ -7,15 +7,12 @@ router.get("/", (req, res, next) => {
     countriesService
         .getAllCountries()
         .then(({ data }) => {
-            const promises = data.map(country =>
-                countriesService.getCountryDetails(country.iso2)
-            )
+            const promises = data.map(country => countriesService.getCountryDetails(country.iso2))
             return Promise.all(promises)
         })
         .then(reponses => {
             const countriesData = reponses.map(response => response?.data)
             res.render('countries/list.hbs', { reponses: countriesData })
-                .catch(err => next(err))
         })
         .catch(err => next(err))
 });
@@ -27,8 +24,8 @@ router.get('/:iso2/estados', (req, res, next) => {
 
     countriesService
         .getCountryStates(iso2)
-        .then(({ data }) => {
-            res.render('countries/states.hbs', { allStates: data })
+        .then(({ data: allStates }) => {
+            res.render('countries/states.hbs', { allStates })
         })
         .catch(err => next(err))
 })

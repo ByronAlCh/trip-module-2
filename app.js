@@ -1,20 +1,19 @@
 
-require("dotenv").config();
-require("./db");
+require("dotenv").config()
+require("./db")
 
-const express = require("express");
-const hbs = require("hbs")
-const app = express();
+const express = require("express")
+const app = express()
 
-require("./config")(app);
+require("./config")(app)
 require("./config/session.config")(app)
 
-const capitalize = require("./utils/capitalize");
-const projectName = "Project-Trips";
+const capitalize = require("./utils/capitalize")
+const projectName = "Project-Trips"
 
-app.locals.appTitle = `${capitalize(projectName)}`;
+app.locals.appTitle = `${capitalize(projectName)}`
 
 require("./routes")(app)
-require("./error-handling")(app);
+require("./error-handling")(app)
 
-module.exports = app;
+module.exports = app

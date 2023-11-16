@@ -8,13 +8,11 @@ const uploaderMiddleware = require('./../middleware/uploader.middleware')
 
 router.get("/perfil", isLoggedIn, (req, res, next) => {
 
-    const user = req.session.currentUser
+    const { currentUser: user } = req.session
 
     User
         .findById(user._id)
-        .then(user => res.render('user/profile',
-            { user: user }
-        ))
+        .then(user => res.render('user/profile', user))
         .catch(err => next(err))
 })
 
@@ -37,7 +35,7 @@ router.get('/listado', isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
 
 router.get('/perfil/editar', isLoggedIn, (req, res, next) => {
 
-    const user = req.session.currentUser
+    const { currentUser: user } = req.session
 
     User
         .findById(user._id)
@@ -48,7 +46,7 @@ router.get('/perfil/editar', isLoggedIn, (req, res, next) => {
 router.post('/perfil/editar', isLoggedIn, (req, res, next) => {
 
     const { name, username, email } = req.body
-    const user = req.session.currentUser
+    const { currentUser: user } = req.session
 
     User
         .findByIdAndUpdate(user._id, { name, username, email })

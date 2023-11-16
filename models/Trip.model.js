@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const User = require("./User.model");
+// TODO: MEJORAR VALIDACIÓN MODELOS
 
 const tripSchema = new Schema(
     {
@@ -19,7 +19,7 @@ const tripSchema = new Schema(
         minimumAge: {
             type: Number,
             min: 18,
-            require: true,
+            required: true,
         },
         date: {
             type: Date,

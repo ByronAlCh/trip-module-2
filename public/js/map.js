@@ -16,6 +16,8 @@ function renderMap() {
     )
 }
 
+// TODO OPCIONAL: INCLUIR SERVICIOS EN CLIENTE
+
 function getTripFromApi() {
 
     axios
