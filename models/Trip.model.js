@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+
 const User = require("./User.model");
 
 const tripSchema = new Schema(
@@ -39,8 +40,6 @@ const tripSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'User'
         }]
-
-
     },
     {
         timestamps: true

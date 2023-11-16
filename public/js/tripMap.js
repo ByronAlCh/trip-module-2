@@ -1,7 +1,6 @@
 let map
 let europa = { lat: 56.860336405312744, lng: 15.21568146421257 }
 
-
 function init() {
     renderMap()
     getTripFromApi()

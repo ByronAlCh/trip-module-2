@@ -1,36 +1,5 @@
-{{!-- <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-        {{#each trips}}
-        <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{country}}</h5>
-                <p class="card-text">{{description}}</p>
-            </div>
-            <a href="/guia-viajes/detalles/{{_id}}" class="btn btn-dark"> Ver detalles </a>
-        </div>
-        {{/each}}
-
-    </div>
-    <div class="col">
-        <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title"> Crear viajes</h5>
-            </div>
-            <a href="/guia-viajes/crear" class="btn btn-dark"> Crear </a>
-        </div>
-
-    </div> --}}
-
-
-
-    {{!--
-</div> --}}
-
 <div class="container">
-    <h1>Lugares a Visitar </h1>
-    <hr>
+    <h1> Listado de Viajes</h1>
 </div>
 
 <div class="text-center">
@@ -47,17 +16,20 @@
                             <h5 class="card-text"><strong>DESCRIPCION DEL EVENTO: </strong> {{description}}</h5>
                         </div>
                         <a href="/guia-viajes/detalles/{{_id}}" class="btn btn-dark"> Ver detalles </a>
+
                     </div>
                     {{/each}}
+
                     <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"> Crear viajes</h5>
-                        </div>
                         <a href="/guia-viajes/crear" class="btn btn-dark"> Crear </a>
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
         {{!-- <div class="col">
             <div class="position-relative">
                 <figure id="map"></figure>

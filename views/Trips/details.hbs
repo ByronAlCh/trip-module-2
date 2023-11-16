@@ -1,48 +1,59 @@
 <div class="text-center">
-    <div class="col">
-        <div class="card">
-            {{!-- <img src="..." class="card-img-top" alt="..."> --}}
-            <div class="card-body">
-                <p>{{owner._id}}</p>
-                <h5 class="card-title"> Pais de destino:{{country}}</h5>
-                <p> Cuidad de destino : {{city}}</p>
-                <p> Fecha de salida : {{date}}</p>
-                <p class="card-text"> Descripcion: {{description}}</p>
+    <div class="row align-items-start">
+        <div class="col">
 
-                {{#each attendees}}
-                <p>{{this.name}}</p>
-                {{/each}}
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <p class="card-text">
+                        {{owner._id}}
+                    </p>
+                    <p class="card-text"> Pais de destino:{{country}}</p>
+                    <p class="card-text"> Cuidad de destino:{{city}}</p>
+                    <p class="card-text"> Fecha de salida:{{date}}</p>
+                    <p class="card-text"> Descripcion:{{description}}</p>
+
+                    {{#each attendees}}
+                    <p><strong>Los participantes:</strong> {{this.name}}</p>
+                    {{/each}}
+                    {{!--
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <form action="/guia-viajes/comentar/{{_id}}" method="POST">
+                                <input type="submit" value="Comentar" class=" btn btn-sm btn-outline-secondary">
+                            </form>
+                            <form action="/guia-viajes/apuntarse/{{_id}}" method="POST">
+                                <input type="submit" value="Apuntarse" class="btn btn-sm btn-outline-secondary">
+                            </form>
+                        </div>
+                    </div> --}}
+                    <a href="/guia-viajes/editar/{{_id}}" class="btn btn-dark"> Editar </a>
+
+                    <form action="/guia-viajes/eliminar/{{_id}}" method="POST">
+                        <input type="submit" value="eliminar" class="btn btn-danger">
+                    </form>
+
+                    <a href="/guia-viajes/comentar/{{_id}}" class="btn btn-info"> Comentar </a>
+
+                    <form action="/guia-viajes/apuntarse/{{_id}}" method="POST">
+                        <input type="submit" value="Apuntarse" class="btn btn-warning">
+                    </form>
+                </div>
 
             </div>
-            <a href="/guia-viajes/editar/{{_id}}" class="btn btn-dark"> Editar </a>
+        </div>
 
-            <form action="/guia-viajes/eliminar/{{_id}}" method="POST">
-                <input type="submit" value="eliminar" class="btn btn-danger">
-            </form>
-            <form action="/guia-viajes/apuntarse/{{_id}}" method="GET">
-                <input type="submit" value="Apuntarse" class="btn btn-warning">
-            </form>
-            <a href="/guia-viajes/comentar/{{_id}}" class="btn btn-info"> Comentar </a>
+        <div class="col">
+            <div class="position-relative">
+                <figure id="myMap"></figure>
+            </div>
 
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script src="/js/map.js"></script>
+            <script
+                src="https://maps.googleapis.com/maps/api/js?callback=init&key=AIzaSyBpaXfuU2S1S4KFhTCwvA_-bEWCozOAIzI"></script>
 
         </div>
-        <form action="/guia-viajes/apuntarse/{{_id}}" method="POST">
-            <input type="submit" value="Apuntarse" class="btn btn-warning">
-        </form>
+
     </div>
 
-
-    <div class="col">
-        <div class="position-relative">
-            <figure id="myMap"></figure>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/js/map.js"></script>
-    <script src=""></script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=init&key=AIzaSyBpaXfuU2S1S4KFhTCwvA_-bEWCozOAIzI">
-    </script>
-
-</div>
 </div>

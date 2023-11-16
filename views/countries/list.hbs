@@ -1,11 +1,7 @@
-{{!-- {{#each data}}
-{{capital}}
-{{/each}}
-
---}}
 <div class="text-center">
     <div class="row align-items-start">
         <div class="col">
+
             <div class="container mb-5">
                 <label for="exampleDataList" class="form-label"> Listado de paises</label>
                 <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder=" Buscar paises...">
@@ -14,20 +10,11 @@
                     <option value="{{name}}">
                         {{/each}}
                 </datalist>
-
-                {{!-- <select class="form-select form-select-lg mb-3" aria-label="Large select example">
-                    <option selected>Selecciona Pais</option>
-                    {{#each reponses}}
-                    <option value="1">{{name}}</option>
-                    {{/each}}
-                </select> --}}
             </div>
 
             <div>
                 {{#each reponses}}
-
                 <div class="card">
-
                     <div class="card-body">
                         <h1>{{emoji}}</h1>
                         <h5 class="card-title"> {{name}}</h5>
@@ -37,9 +24,10 @@
                 </div>
                 {{/each}}
             </div>
+
         </div>
 
-        <div class="col">
+        {{!-- <div class="col">
             <div class="position-relative">
                 <figure id="myMap"></figure>
             </div>
@@ -48,9 +36,8 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="/js/map.js"></script>
         <script src="/services/countries.services.js"></script>
-        <script
-            src="https://maps.googleapis.com/maps/api/js?callback=init&key=AIzaSyBpaXfuU2S1S4KFhTCwvA_-bEWCozOAIzI"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?callback=init&key=API_KEY_MAPS"></script> --}}
 
     </div>
-</div>
+
 </div>

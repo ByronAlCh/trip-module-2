@@ -3,9 +3,9 @@ const router = express.Router()
 
 const bcrypt = require('bcryptjs')
 const User = require('./../models/User.model')
-const uploaderMiddleware = require('./../middleware/uploader.middleware')
 const saltRounds = 10
 
+const uploaderMiddleware = require('./../middleware/uploader.middleware')
 const { isLoggedOut } = require('../middleware/route-guard')
 
 router.get('/registrarse', isLoggedOut, (req, res, next) => {
@@ -52,7 +52,6 @@ router.post('/inicio-sesion', (req, res, next) => {
             }
 
             req.session.currentUser = foundUser
-            // console.log('SESION INICIADA', req.session)
             res.redirect('/')
         })
         .catch(err => next(err))
@@ -61,7 +60,5 @@ router.post('/inicio-sesion', (req, res, next) => {
 router.get('/cerrar-sesion', (req, res, next) => {
     req.session.destroy(() => res.redirect('/'))
 })
-
-
 
 module.exports = router
