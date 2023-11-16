@@ -48,7 +48,12 @@ router.post('/crear', isLoggedIn, (req, res, next) => {
     }
 
     Trip
+<<<<<<< HEAD
         .create({ country, city, minimumAge, date, namePlace, description, location, owner })
+=======
+
+        .create({ country, city, minimumAge, date, namePlace, description, location })
+>>>>>>> e1e0a14a83cd15e6d1ac373a1b3ab37c74640e8c
         .then(() => res.redirect('/guia-viajes'))
         .catch(err => next(err))
 
