@@ -8,10 +8,7 @@ const app = express()
 require("./config")(app)
 require("./config/session.config")(app)
 
-const capitalize = require("./utils/capitalize")
-const projectName = "Project-Trips"
-
-app.locals.appTitle = `${capitalize(projectName)}`
+app.locals.appTitle = `TRIPWEB`
 
 require("./routes")(app)
 require("./error-handling")(app)
