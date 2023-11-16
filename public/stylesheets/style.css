@@ -24,3 +24,66 @@ h1 {
 
 
 }
+
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-size: auto;
+  background-position: center;
+  animation: cambioImagenes 100s infinite;
+}
+
+@keyframes cambioImagenes {
+
+  0%,
+  100% {
+    background-image: url('/images/puente-madera.avif');
+  }
+
+  10% {
+    background-image: url('/images/Viaje1.jpg');
+  }
+
+  20% {
+    background-image: url('/images/viajes2.jpg');
+  }
+
+  30% {
+    background-image: url('/images/viaje3.jpg');
+  }
+
+  40% {
+    background-image: url('/images/Viaje4.jpg');
+  }
+
+  50% {
+    background-image: url('//images/viaje5.jpg');
+  }
+
+  60% {
+    background-image: url('/images/Viaje6.jpg');
+  }
+
+  70% {
+    background-image: url('/images/viaje7.jpg');
+  }
+
+  80% {
+    background-image: url('/images/viaje9.jpg');
+  }
+
+  90% {
+    background-image: url('/images/viaje10.jpg');
+  }
+}
+
+.img-fluid {
+  width: 100%;
+  /* Asegura que la imagen ocupe todo el ancho disponible */
+  height: 100%;
+  /* Intenta expandir la imagen en altura */
+  object-fit: cover;
+  /* Escalar la imagen para llenar el contenedor sin distorsionarla */
+}
