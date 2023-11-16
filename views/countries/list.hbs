@@ -1,32 +1,79 @@
-<div class="text-center">
-    <div class="row align-items-start">
-        <div class="col">
-            <div class="container mb-5">
-                <label for="exampleDataList" class="form-label"></label>
-                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder=" Buscar paises...">
-                <datalist id="datalistOptions">
-                    {{#each reponses}}
-                    <option value="{{name}}">
-                        {{/each}}
-                </datalist>
-            </div>
-
-            <div>
-                {{#each reponses}}
-                <div class="card">
-                    <div class="card-body">
-                        <h1>{{emoji}}</h1>
-                        <h5 class="card-title"> {{name}}</h5>
-                        <p class="card-text"> {{capital}}</p>
-
-                        <a href="/paises/{{iso2}}/estados" class="btn btn-dark"> Detalles</a>
-                    </div>
+<div class="container>">
+    <div class="text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="container mb-5">
+                    <label for="exampleDataList" class="form-label"></label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList"
+                        placeholder=" Buscar paises...">
+                    <datalist id="datalistOptions">
+                        {{#each reponses}}
+                        <option value="{{name}}">
+                            {{/each}}
+                    </datalist>
                 </div>
-                {{/each}}
+
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-md-2 g-4 grid gap-5">
+                        {{#each reponses}}
+                        <div class="card border-light mb-3" style="max-width: 18rem;">
+                            <div class="card-header">{{name}} {{emoji}}</div>
+                            <div class="card-body">
+                                <p> Capital:<class="card-title">{{capital}}</p>
+                                <p>{{iso3}}</p>
+                                <p>Region:{{region}}</p>
+                                <p>{{currency_name}} {{currency_symbol}}</p>
+                                <p>{{nationality}}</p>
+
+                                <a href="/paises/{{iso2}}/estados" class="btn btn-dark"> Detalles</a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
 
     </div>
 
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {{!-- <div class="container ">
+        <div class="col-md-6 grid gap-2 ">
+            {{#each reponses}}
+
+            <div class="card">
+                <h1>{{emoji}}</h1>
+                <h5 class="card-body"> {{name}}</h5>
+                <p class="card-text"> {{capital}}</p>
+                <div class="justify-content-between ">
+                    <div class="btn-group">
+                        <button href="/paises/{{iso2}}/estados" class="btn btn-dark"> Detalles</button>
+
+                    </div>
+                </div>
+            </div>
+
+            {{/each}}
+        </div>
+
+    </div> --}}

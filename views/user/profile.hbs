@@ -1,15 +1,21 @@
 <div class="container">
-    <h1><strong>Perfil de {{name}}</strong> </h1>
+    <h1><strong>Perfil de {{user.name}}</strong> </h1>
     <hr>
 
-    <img src="{{cover}}" class="img-fluid rounded-start" alt="...">
-    <p style="font-size: x-large;">UserName: {{username}}</p>
-    <p style="font-size: x-large;">Fecha de Nacimiento: {{age}}</p>
-    <p style="font-size: x-large;">Email: {{email}}</p>
+    <img src="{{user.cover}}" class="img-fluid rounded-start" alt="...">
+    <p style="font-size: x-large;">UserName: {{user.username}}</p>
+    <p style="font-size: x-large;">Fecha de Nacimiento: {{user.age}}</p>
+    <p style="font-size: x-large;">Email: {{user.email}}</p>
     <a href="/perfil/editar" class="btn btn-dark"> Editar </a>
 
     <hr>
 
     <a class="btn btn-dark" href="/">Volver al inicio</a>
+
+
+    {{#if isAdmin}}
+    <a class="nav-link active" aria-current="page" href="/listado"> Ver usuarios</a>
+    {{/if}}
+
 
 </div>

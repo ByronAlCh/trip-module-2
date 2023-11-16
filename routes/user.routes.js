@@ -12,13 +12,18 @@ router.get("/perfil", isLoggedIn, (req, res, next) => {
 
     User
         .findById(user._id)
-        .then(user => res.render('user/profile', user))
+        .then(user => res.render('user/profile',
+
+            {
+                user,
+                isAdmin: req.session.currentUser.role === 'ADMIN'
+            }
+        ))
         .catch(err => next(err))
+
 })
 
-// router.get("/admin", isLoggedIn, checkRole('ADMIN'), (req, res) => {
-//     res.render("user/admin-panel", { user: req.session.currentUser })
-// })
+
 
 router.get('/listado', isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
 
