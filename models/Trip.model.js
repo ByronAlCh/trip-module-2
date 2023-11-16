@@ -23,6 +23,9 @@ const tripSchema = new Schema(
         date: {
             type: Date,
         },
+        namePlace: {
+            type: String,
+        },
         description: {
             type: String,
             max: 100

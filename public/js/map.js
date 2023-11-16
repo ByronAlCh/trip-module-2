@@ -1,23 +1,22 @@
-const ironhackCoords = { lat: 40.392521370648154, lng: - 3.6989879718518366 }
-let myMap
+let map
+let europa = { lat: 56.860336405312744, lng: 15.21568146421257 }
 
 function init() {
     renderMap()
-    getTripsFromAPI()
+    getTripFromApi()
 }
 
 function renderMap() {
-
-    myMap = new google.maps.Map(
-        document.querySelector('#myMap'),
+    map = new google.maps.Map(
+        document.querySelector('#map'),
         {
-            zoom: 13,
-            center: ironhackCoords,
+            zoom: 5,
+            center: europa,
         }
     )
 }
 
-function getTripsFromAPI() {
+function getTripFromApi() {
 
     axios
         .get('/api/trip')
@@ -25,16 +24,26 @@ function getTripsFromAPI() {
         .catch(err => console.log(err))
 }
 
-// function printTripsMarkers(trips) {
+function printTripsMarkers(trip) {
+    trip.forEach(elm => {
 
-//     trips.forEach(elm => {
+        const position = { lat: elm.location.coordinates[1], lng: elm.location.coordinates[0] }
 
-//         const position = { lat: elm.location.coordinates[1], lng: elm.location.coordinates[0] }
+        const marker = new google.maps.Marker({
+            map: map,
+            position,
+            title: elm.name
+        })
 
-//         new google.maps.Marker({
-//             map: myMap,
-//             position,
-//             title: elm.name
-//         })
-//     })
-// }
+        const infoContent = `<h3>${elm.namePlace}</h3><h6>${elm.description}</h6>`
+
+        const infoWindow = new google.maps.InfoWindow({
+            content: infoContent
+        })
+
+        marker.addListener('click', function () {
+            infoWindow.open(map, marker)
+        })
+    })
+}
+

@@ -1,48 +1,50 @@
-<div class="text-center">
-    <div class="col">
-        <div class="card">
-            {{!-- <img src="..." class="card-img-top" alt="..."> --}}
-            <div class="card-body">
-                <p>{{owner._id}}</p>
-                <h5 class="card-title"> Pais de destino:{{country}}</h5>
-                <p> Cuidad de destino : {{city}}</p>
-                <p> Fecha de salida : {{date}}</p>
-                <p class="card-text"> Descripcion: {{description}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body" style="font-size: x-large;">
+                    <h4 class="card-title"><strong>{{namePlace}}</strong></h4>
+                    <h5 class="card-title" style="font-size: x-large;"> Pais de destino:{{country}}</h5>
+                    <p> Cuidad de destino : {{city}}</p>
+                    <p> Fecha de salida : {{date}}</p>
+                    <p class="card-text"> Descripcion: {{description}}</p>
 
-                {{#each attendees}}
-                <p>{{this.name}}</p>
-                {{/each}}
 
+                    <div class="d-flex justify-content-between mb-3">
+                        <a href="/guia-viajes/comentar/{{_id}}" class="btn btn-info"> Comentar </a>
+                        <form action="/guia-viajes/apuntarse/{{_id}}" method="POST">
+                            <input type="submit" value="Apuntarse" class="btn btn-warning">
+                        </form>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a href="/guia-viajes/editar/{{_id}}" class="btn btn-dark"> Editar </a>
+                        <form action="/guia-viajes/eliminar/{{_id}}" method="POST">
+                            <input type="submit" value="eliminar" class="btn btn-danger">
+                        </form>
+                    </div>
+                </div>
             </div>
-            <a href="/guia-viajes/editar/{{_id}}" class="btn btn-dark"> Editar </a>
-
-            <form action="/guia-viajes/eliminar/{{_id}}" method="POST">
-                <input type="submit" value="eliminar" class="btn btn-danger">
-            </form>
-            <form action="/guia-viajes/apuntarse/{{_id}}" method="GET">
-                <input type="submit" value="Apuntarse" class="btn btn-warning">
-            </form>
-            <a href="/guia-viajes/comentar/{{_id}}" class="btn btn-info"> Comentar </a>
-
-
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2><strong>Participantes</strong></h2>
+                    <ul>
+                        {{#each attendees}}
+                        <li style="font-size: x-large;">{{this.name}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
         </div>
-        <form action="/guia-viajes/apuntarse/{{_id}}" method="POST">
-            <input type="submit" value="Apuntarse" class="btn btn-warning">
-        </form>
-    </div>
 
-
-    <div class="col">
-        <div class="position-relative">
-            <figure id="myMap"></figure>
+        <div class="col-md-6">
+            <div class="position-relative">
+                <figure id="map"></figure>
+            </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/js/map.js"></script>
-    <script src=""></script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=init&key=AIzaSyBpaXfuU2S1S4KFhTCwvA_-bEWCozOAIzI">
-    </script>
-
 </div>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/map.js"></script>
+<script src=""></script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=init&key=AIzaSyBpaXfuU2S1S4KFhTCwvA_-bEWCozOAIzI">
+</script>
