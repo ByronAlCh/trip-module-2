@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <h1>Nuevo Viaje </h1>
+
+            <hr>
+
+            <form action="/guia-viajes/crear" method="POST">
+                <div class="mb-3">
+                    <label for="tit" class="form-label">Nombre de usuario</label>
+                    <input type="text" class="form-control" id="tit" name="owner">
+                </div>
+
+                <div class="mb-3">
+                    <label for="aut" class="form-label">Pais</label>
+                    <input type="text" class="form-control" id="aut" name="country">
+                </div>
+
+                <div class="mb-3">
+                    <label for="desc" class="form-label">Ciudad</label>
+                    <input type="text" class="form-control" id="desc" name="city">
+                </div>
+
+                <div class="mb-3">
+                    <label for="rat" class="form-label">Edad</label>
+                    <input type="number" class="form-control" id="rat" name="minimumAge">
+                </div>
+                <div class="mb-3">
+                    <label for="rat" class="form-label"> Fecha</label>
+                    <input type="date" class="form-control" id="rat" name="date">
+                </div>
+                <div class="mb-3">
+                    <label for="rat" class="form-label"> NamePLace</label>
+                    <input type="text" class="form-control" id="rat" name="namePlace">
+                </div>
+                <div class="mb-3">
+                    <label for="rat" class="form-label"> Descripcion</label>
+                    <input type="text" class="form-control" id="rat" name="description">
+                </div>
+                <div class="mb-3">
+                    <label for="Lat" class="form-label"> Latitud</label>
+                    <input type="text" class="form-control" id="rat" name="latitude">
+                </div>
+                <div class="mb-3">
+                    <label for="Lon" class="form-label"> Longitud</label>
+                    <input type="text" class="form-control" id="Lon" name="longitude">
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark">Crear viaje</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

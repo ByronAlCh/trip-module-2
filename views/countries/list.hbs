@@ -2,15 +2,36 @@
     <div class="row align-items-start">
         <div class="col">
 
-            <div class="container mb-5">
-                <label for="exampleDataList" class="form-label"> Listado de paises</label>
+            <form action="/" method="post" target="_blank">
+
+                <p>
+
+                    Busca paises: <input type="search" name="busquedamodelos" list="listamodelos">
+
+                    <input type="submit" value="Buscar">
+
+                </p>
+
+                <datalist id="listamodelos">
+                    {{#each reponses}}
+                    <option value="{{name}}">
+
+                        {{/each}}
+                </datalist>
+
+            </form>
+
+
+
+            {{!-- <div class="container mb-5">
+                <label for="exampleDataList" class="form-label"></label>
                 <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder=" Buscar paises...">
                 <datalist id="datalistOptions">
                     {{#each reponses}}
                     <option value="{{name}}">
                         {{/each}}
                 </datalist>
-            </div>
+            </div> --}}
 
             <div>
                 {{#each reponses}}
@@ -19,6 +40,7 @@
                         <h1>{{emoji}}</h1>
                         <h5 class="card-title"> {{name}}</h5>
                         <p class="card-text"> {{capital}}</p>
+
                         <a href="/paises/{{iso2}}/estados" class="btn btn-dark"> Detalles</a>
                     </div>
                 </div>
@@ -26,17 +48,6 @@
             </div>
 
         </div>
-
-        {{!-- <div class="col">
-            <div class="position-relative">
-                <figure id="myMap"></figure>
-            </div>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="/js/map.js"></script>
-        <script src="/services/countries.services.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?callback=init&key=API_KEY_MAPS"></script> --}}
 
     </div>
 
