@@ -3,7 +3,7 @@ const router = express.Router()
 
 const Trip = require('./../models/Trip.model')
 const User = require('./../models/User.model')
-const Comment = require('./../models/Comments.model')
+
 
 const { isLoggedIn } = require('../middleware/route-guard')
 
@@ -26,6 +26,7 @@ router.get('/detalles/:_id', isLoggedIn, (req, res, next) => {
         .then(trip => res.render('trips/details.hbs', trip))
         .catch(err => next(err))
 })
+
 
 router.get('/crear', isLoggedIn, (req, res, next) => {
     res.render('trips/create.hbs')
@@ -106,18 +107,6 @@ router.post("/apuntarse/:id_trip", isLoggedIn, (req, res, next) => {
         .catch(err => next(err))
 })
 
-router.get('/guia-viajes/comentar/:_id', (req, res, next) => {
-    const { _id: id_trip } = req.params
-    console.log('funcionaaa')
-
-    // Comment
-
-    //     .findById(id_trip)
-    //     .then(() => res.send(id_trip))
-    //     .catch(err => next(err))
-
-})
-
 router.post('/eliminar/:_id', isLoggedIn, (req, res, next) => {
 
     const { _id: owner } = req.params
@@ -128,6 +117,12 @@ router.post('/eliminar/:_id', isLoggedIn, (req, res, next) => {
         .catch(err => next(err))
 
 })
+
+
+
+
+module.exports = router;
+
 
 router.get("/map", (req, res, next) => {
     res.render('trips/list.hbs')

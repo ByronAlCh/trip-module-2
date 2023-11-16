@@ -18,4 +18,6 @@ module.exports = app => {
     const countriesRoutes = require('./countries.routes')
     app.use('/paises', countriesRoutes)
 
+
+
 }
