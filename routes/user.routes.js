@@ -16,9 +16,9 @@ router.get("/perfil", isLoggedIn, (req, res, next) => {
         .catch(err => next(err))
 })
 
-router.get("/admin", isLoggedIn, checkRole('ADMIN'), (req, res) => {
-    res.render("user/admin-panel", { user: req.session.currentUser })
-})
+// router.get("/admin", isLoggedIn, checkRole('ADMIN'), (req, res) => {
+//     res.render("user/admin-panel", { user: req.session.currentUser })
+// })
 
 router.get('/listado', isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
 
