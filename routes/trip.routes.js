@@ -30,7 +30,6 @@ router.get('/crear', isLoggedIn, (req, res, next) => {
 
 router.post('/crear', isLoggedIn, (req, res, next) => {
 
-    const { country, city, minimumAge, date, description, latitude, longitude } = req.body
     const { country, city, minimumAge, date, namePlace, description, latitude, longitude } = req.body
 
     const location = {
@@ -39,7 +38,7 @@ router.post('/crear', isLoggedIn, (req, res, next) => {
     }
 
     Trip
-        .create({ country, city, minimumAge, date, description, location })
+
         .create({ country, city, minimumAge, date, namePlace, description, location })
         .then(() => res.redirect('/guia-viajes'))
         .catch(err => next(err))
@@ -92,61 +91,56 @@ router.get('/guia-viajes/comentar/:_id', isLoggedIn, (req, res, next) => {
 
 router.post("/apuntarse/:id_trip", isLoggedIn, (req, res, next) => {
 
-    router.post('/apuntarse/:id_trip', (req, res, next) => {
-        const { id_trip } = req.params
-        const { _id: idUser } = req.session.currentUser
 
-        Trip
-            .findByIdAndUpdate(id_trip, { $push: { attendees: idUser } })
-            .then(() => res.redirect(`/guia-viajes/detalles/${id_trip}`))
-        const { currentUser: user } = req.session
+    const { id_trip } = req.params
+    const { currentUser: user } = req.session
 
-        Trip
-            .findById(id_trip)
-            .then(trip => {
-                if (trip.attendees.includes(user._id)) {
-                    return
-                }
-                else {
-                    return Trip.findByIdAndUpdate(id_trip, { $push: { attendees: user._id } })
-                }
-            })
-            .then(trip => {
-                if (trip) {
-                    res.redirect(`/guia-viajes/detalles/${trip._id}`)
-                }
-                else {
-                    res.send({ errorMessage: 'Ya estas apuntado' })
-                }
-            })
-            .catch(err => next(err))
-    })
+    Trip
+        .findById(id_trip)
+        .then(trip => {
+            if (trip.attendees.includes(user._id)) {
+                return
+            }
+            else {
+                return Trip.findByIdAndUpdate(id_trip, { $push: { attendees: user._id } })
+            }
+        })
+        .then(trip => {
+            if (trip) {
+                res.redirect(`/guia-viajes/detalles/${trip._id}`)
+            }
+            else {
+                res.send({ errorMessage: 'Ya estas apuntado' })
+            }
+        })
+        .catch(err => next(err))
+})
 
 
 
-    router.get('/guia-viajes/comentar/:_id', (req, res, next) => {
-        const { _id: id_trip } = req.params
+router.get('/guia-viajes/comentar/:_id', (req, res, next) => {
+    const { _id: id_trip } = req.params
 
-        Comment
+    Comment
 
-            .findById(id_trip)
-            .then(() => res.send(id_trip))
-            .catch(err => next(err))
+        .findById(id_trip)
+        .then(() => res.send(id_trip))
+        .catch(err => next(err))
 
-    })
+})
 
-    router.post('/eliminar/:_id', isLoggedIn, (req, res, next) => {
-        const { _id: owner } = req.params
+router.post('/eliminar/:_id', isLoggedIn, (req, res, next) => {
+    const { _id: owner } = req.params
 
-        Trip
-            .findByIdAndDelete(owner)
-            .then(() => res.redirect('/guia-viajes'))
-            .catch(err => next(err))
+    Trip
+        .findByIdAndDelete(owner)
+        .then(() => res.redirect('/guia-viajes'))
+        .catch(err => next(err))
 
-    })
+})
 
-    router.get("/map", (req, res, next) => {
-        res.render('trips/list.hbs')
-    })
+router.get("/map", (req, res, next) => {
+    res.render('trips/list.hbs')
+})
 
-    module.exports = router
+module.exports = router
