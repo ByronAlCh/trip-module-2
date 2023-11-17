@@ -1,24 +1,22 @@
-<div class="container">
-    <h1 style="color: #FFA500; font-weight: bold; font-size: 6em; -webkit-text-stroke: 1px black;">
-        Perfil de {{user.name}}
-    </h1>
+<div class="container" style="font-size: 1em;">
+    <h1 style="color: darkgreen;font-size: 5em; text-shadow: 2px 2px 0 #000;">Perfil de {{user.name}}</h1>
+    {{#if isAdmin}}
+    <a class="btn btn-dark" aria-current="page" href="/listado">Ver Lista de Usuarios</a>
+    {{/if}}
     <hr>
-    <div class="container">
-        <img src="{{user.cover}}" class="img-fluid rounded-start" alt="...">
-        <p style="font-size: x-large;"> Nombre de Usuario: {{user.username}}</p>
-        <p style="font-size: x-large;">Fecha de Nacimiento: {{user.age}}</p>
-        <p style="font-size: x-large;"> Correo: {{user.email}}</p>
-        <a href="/perfil/editar" class="btn btn-lg btn-light fw-bold border-dark bg-warning"> Editar </a>
-
-        <hr>
-
-        <a class="btn btn-lg btn-light fw-bold border-dark bg-warning" href="/">Volver al inicio</a>
-
-
-        {{#if isAdmin}}
-        <a class="btn btn-lg btn-light fw-bold border-dark bg-warning" aria-current="page" href="/listado"> Ver
-            usuarios</a>
-        {{/if}}
-
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <img src="{{user.cover}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <p style="font-size: 3em;">UserName: {{user.username}}</p>
+            <p style="font-size: 3em;">Fecha de Nacimiento: {{user.age}}</p>
+            <p style="font-size: 3em;">Email: {{user.email}}</p>
+        </div>
     </div>
+    <div>
+        <a href="/perfil/editar" class="btn btn-warning ">Editar</a>
+    </div>
+    <hr>
+    <a class="btn btn-dark" href="/">Volver al inicio</a>
 </div>

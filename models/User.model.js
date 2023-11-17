@@ -36,7 +36,7 @@ const userSchema = new Schema(
 
     cover: {
       type: String,
-      required: false
+      required: [true, 'La imagen es obligatoria']
     },
 
     role: {
