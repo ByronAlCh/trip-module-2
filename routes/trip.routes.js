@@ -27,6 +27,17 @@ router.get('/detalles/:_id', isLoggedIn, (req, res, next) => {
         .catch(err => next(err))
 })
 
+router.post('/detalles/:_id/comentarios', isLoggedIn, (req, res, next) => {
+    
+    const { _id} = req.params
+    const {comment} = req.body
+
+ Trip
+    .findByIdAndUpdate(_id, { $push: {comment}  })
+
+    .then(() => res.redirect(`/guia-viajes/detalles/${_id}`,))
+    .catch(err => next(err))
+})
 
 router.get('/crear', isLoggedIn, (req, res, next) => {
     res.render('trips/create.hbs')
@@ -65,9 +76,9 @@ router.post('/editar/:_id', isLoggedIn, (req, res, next) => {
     const { _id: id_trip } = req.params
 
     Trip
-        .findByIdAndUpdate(id_trip, { country, city, minimumAge, date, namePlace, description, owner })
-        .populate('owner')
-        .then(() => res.redirect(`/detalles/${owner}`))
+        .findByIdAndUpdate(id_trip, { country, city, minimumAge, date, namePlace, description })
+        
+        .then(() => res.redirect(`/guia-viajes/detalles/${id_trip}`))
         .catch(err => next(err))
 })
 

@@ -7,6 +7,7 @@ function init() {
 }
 
 function renderMap() {
+    
     map = new google.maps.Map(
         document.querySelector('#map'),
         {
@@ -15,6 +16,10 @@ function renderMap() {
         }
     )
 }
+
+const mapContainer = document.querySelector('#map')
+    mapContainer.style.borderRadius = '10px'
+    mapContainer.style.border = '5px solid #000'
 
 // TODO OPCIONAL: INCLUIR SERVICIOS EN CLIENTE
 
@@ -27,6 +32,7 @@ function getTripFromApi() {
 }
 
 function printTripsMarkers(trip) {
+    
     trip.forEach(elm => {
 
         const position = { lat: elm.location.coordinates[1], lng: elm.location.coordinates[0] }
@@ -37,7 +43,7 @@ function printTripsMarkers(trip) {
             title: elm.name
         })
 
-        const infoContent = `<h3>${elm.namePlace}</h3><h6>${elm.description}</h6>`
+        const infoContent = `<h2 style="color: blue">${elm.namePlace}</h2><h5 style="color: blue">${elm.description}</h5>`
 
         const infoWindow = new google.maps.InfoWindow({
             content: infoContent

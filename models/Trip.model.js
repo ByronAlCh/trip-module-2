@@ -10,27 +10,33 @@ const tripSchema = new Schema(
         },
         country: {
             type: String,
-            required: true,
+            required: [true, 'El país obligatoria']
         },
         city: {
             type: String,
-            required: true
+            required: [true, 'La ciudad obligatoria']
         },
         minimumAge: {
             type: Number,
             min: 18,
-            required: true,
+            required: [true, 'Minimo de edad recomendada obligatoria']
         },
         date: {
             type: Date,
+            required: [true, 'Fecha del evento obligatoria']
         },
         namePlace: {
             type: String,
+            required: [true, 'Nombre del sitio obligatorio']
         },
         description: {
             type: String,
-            max: 100
+            max: 100,
+            required: [true, 'Una bre descripción obligatoria de solo 100 caracteres']
         },
+        comment:[{
+            type: String,
+        }],
         location: {
             type: {
                 type: String
