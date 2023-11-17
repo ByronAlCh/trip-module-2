@@ -17,7 +17,6 @@ router.get("/", (req, res, next) => {
         .catch(err => next(err))
 });
 
-
 router.get('/:iso2/estados', (req, res, next) => {
 
     const { iso2 } = req.params
@@ -26,8 +25,15 @@ router.get('/:iso2/estados', (req, res, next) => {
         .getCountryStates(iso2)
         .then(({ data: allStates }) => {
             res.render('countries/states.hbs', { allStates })
+
         })
         .catch(err => next(err))
 })
 
 module.exports = router;
+
+
+
+
+
+

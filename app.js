@@ -8,6 +8,8 @@ const app = express()
 require("./config")(app)
 require("./config/session.config")(app)
 
+require("./utils/formatDate")(app)
+
 app.locals.appTitle = `TRIPWEB`
 
 require("./routes")(app)

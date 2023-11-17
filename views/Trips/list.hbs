@@ -1,5 +1,7 @@
 <div class="container">
-    <h1> Listado de Viajes</h1>
+    <h1 style="color: #FFA500; font-weight: bold; font-size: 6em; -webkit-text-stroke: 1px black;"> Listado de Viajes
+    </h1>
+
 </div>
 
 <div class="text-center">
@@ -15,13 +17,15 @@
                             <h5 class="card-title"><strong>EDAD MINIMA RECOMENDADA: </strong> {{minimumAge}}</h5>
                             <h5 class="card-text"><strong>DESCRIPCION DEL EVENTO: </strong> {{description}}</h5>
                         </div>
-                        <a href="/guia-viajes/detalles/{{_id}}" class="btn btn-dark"> Ver detalles </a>
+                        <a href="/guia-viajes/detalles/{{_id}}"
+                            class="btn btn-lg btn-light fw-bold border-dark bg-warning"> Ver Detalles </a>
 
                     </div>
                     {{/each}}
 
                     <div class="card">
-                        <a href="/guia-viajes/crear" class="btn btn-dark"> Crear </a>
+                        <a href="/guia-viajes/crear" class="btn btn-lg btn-light fw-bold border-dark bg-warning"> Crear
+                        </a>
                     </div>
 
                 </div>

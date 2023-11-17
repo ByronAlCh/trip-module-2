@@ -1,6 +1,8 @@
 <div class="container">
-    <h1>Bienvenido Admin</h1>
-    <hr>
+    <h1 style="color: #FFA500; font-weight: bold; font-size: 8em; -webkit-text-stroke: 1px black;">
+        Bienvenido Admin
+    </h1>
+
 </div>
 
 <div class="container text-center">
@@ -14,9 +16,9 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"><strong>Name:</strong> {{name}}</h5>
-                            <p class="card-text"><strong>UserName:</strong> {{username}}</p>
-                            <p class="card-text"><strong>Email: </strong> {{email}}</p>
+                            <h5 class="card-title"><strong>Nombre:</strong> {{name}}</h5>
+                            <p class="card-text"><strong> Nombre de usuario:</strong> {{username}}</p>
+                            <p class="card-text"><strong> Correo: </strong> {{email}}</p>
                             <form action="/eliminar/{{_id}}" method="POST">
                                 <input type="submit" value="eliminar" class="btn btn-danger">
                             </form>

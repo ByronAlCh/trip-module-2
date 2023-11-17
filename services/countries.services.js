@@ -25,8 +25,6 @@ class CountriesService {
 
 }
 
-
-
 const countriesService = new CountriesService()
 
 module.exports = countriesService

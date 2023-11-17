@@ -1,21 +1,24 @@
 <div class="container">
-    <h1><strong>Perfil de {{user.name}}</strong> </h1>
+    <h1 style="color: #FFA500; font-weight: bold; font-size: 6em; -webkit-text-stroke: 1px black;">
+        Perfil de {{user.name}}
+    </h1>
     <hr>
+    <div class="container">
+        <img src="{{user.cover}}" class="img-fluid rounded-start" alt="...">
+        <p style="font-size: x-large;"> Nombre de Usuario: {{user.username}}</p>
+        <p style="font-size: x-large;">Fecha de Nacimiento: {{user.age}}</p>
+        <p style="font-size: x-large;"> Correo: {{user.email}}</p>
+        <a href="/perfil/editar" class="btn btn-lg btn-light fw-bold border-dark bg-warning"> Editar </a>
 
-    <img src="{{user.cover}}" class="img-fluid rounded-start" alt="...">
-    <p style="font-size: x-large;">UserName: {{user.username}}</p>
-    <p style="font-size: x-large;">Fecha de Nacimiento: {{user.age}}</p>
-    <p style="font-size: x-large;">Email: {{user.email}}</p>
-    <a href="/perfil/editar" class="btn btn-dark"> Editar </a>
+        <hr>
 
-    <hr>
-
-    <a class="btn btn-dark" href="/">Volver al inicio</a>
-
-
-    {{#if isAdmin}}
-    <a class="nav-link active" aria-current="page" href="/listado"> Ver usuarios</a>
-    {{/if}}
+        <a class="btn btn-lg btn-light fw-bold border-dark bg-warning" href="/">Volver al inicio</a>
 
 
+        {{#if isAdmin}}
+        <a class="btn btn-lg btn-light fw-bold border-dark bg-warning" aria-current="page" href="/listado"> Ver
+            usuarios</a>
+        {{/if}}
+
+    </div>
 </div>

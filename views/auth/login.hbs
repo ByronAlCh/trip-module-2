@@ -2,16 +2,19 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
 
-            <h1>Acceso</h1>
+            <h1 style="color: #FFA500; font-weight: bold; font-size: 8em; -webkit-text-stroke: 1px black;">
+                Acceso
+            </h1>
+
             <hr>
 
             <form action="/inicio-sesion" method="POST">
                 <div class="mb-3">
-                    <label for="email" class="form-label">Dirección de email</label>
+                    <label for="email" class="form-label fw-bold">Dirección de email</label>
                     <input type="email" class="form-control" id="email" name="email">
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
+                    <label for="password" class="form-label fw-bold">Contraseña</label>
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
 
@@ -20,7 +23,7 @@
                 {{/if}}
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-dark">Acceder</button>
+                    <button type="submit" class="btn btn-lg btn-light fw-bold border-dark bg-warning">Acceder</button>
                 </div>
 
             </form>

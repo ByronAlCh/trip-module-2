@@ -4,6 +4,7 @@ const router = express.Router()
 const Trip = require('./../models/Trip.model')
 const User = require('./../models/User.model')
 
+const formatDate = require('../utils/formatDate')
 
 const { isLoggedIn } = require('../middleware/route-guard')
 
@@ -37,6 +38,7 @@ router.post('/crear', isLoggedIn, (req, res, next) => {
     const { country, city, minimumAge, date, namePlace, description, latitude, longitude } = req.body
     const { _id: owner } = req.session.currentUser
 
+
     const location = {
         type: 'Point',
         coordinates: [longitude, latitude]
@@ -44,7 +46,9 @@ router.post('/crear', isLoggedIn, (req, res, next) => {
 
     Trip
         .create({ country, city, minimumAge, date, namePlace, description, location, owner })
-        .then(() => res.redirect('/guia-viajes'))
+        .then(() =>
+            res.redirect('/guia-viajes'))
+        // console.log(date))
         .catch(err => next(err))
 
 })

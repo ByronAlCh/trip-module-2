@@ -2,29 +2,22 @@
     <div class="text-center">
         <div class="row align-items-start">
             <div class="col">
-
-                <div class="card mb-5 ">
-                    <div class="card-body">
-                        {{!-- <h5 class="card-title">{{name}}</h5>
-                        <p class="card-text">{{capital}}</p>
-                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> --}}
-                    </div>
-                </div>
-
+                <h1 style="color: #FFA500; font-weight: bold; font-size: 6em; -webkit-text-stroke: 1px black;">
+                    Estados
+                </h1>
                 <div class="container">
                     <div class="row row-cols-1 row-cols-md-2 g-4 grid gap-4">
                         {{#each allStates}}
-                        <div class="card border-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header">{{name}} </div>
+                        <div class="card border-warning mb-3" style="max-width: 18rem;">
+                            <div class="card-header fw-bold">{{name}} </div>
                             <div class="card-body">
                                 <p><class="card-title">{{iso2}}</p>
                             </div>
                         </div>
                         {{/each}}
+
                     </div>
-
                 </div>
-
             </div>
 
             <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -32,7 +25,5 @@
             <script src="/services/countries.services.js"></script>
 
         </div>
-
     </div>
-
 </div>

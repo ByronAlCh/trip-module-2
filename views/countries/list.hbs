@@ -3,32 +3,30 @@
         <div class="row align-items-start">
             <div class="col">
                 <div class="container mb-5">
-                    <label for="exampleDataList" class="form-label"></label>
-                    <input class="form-control" list="datalistOptions" id="exampleDataList"
-                        placeholder=" Buscar paises...">
-                    <datalist id="datalistOptions">
-                        {{#each reponses}}
-                        <option value="{{name}}">
-                            {{/each}}
-                    </datalist>
+
+                    <h1 style="color: #FFA500; font-weight: bold; font-size: 6em; -webkit-text-stroke: 1px black;">
+                        Listado de Paises
                 </div>
 
                 <div class="container">
                     <div class="row row-cols-1 row-cols-md-2 g-4 grid gap-5">
                         {{#each reponses}}
-                        <div class="card border-light mb-3" style="max-width: 18rem;">
-                            <div class="card-header">{{name}} {{emoji}}</div>
+                        <div class="card border-warning mb-3" style="max-width: 18rem;">
+                            <div class="card-header fw-bolder">{{name}} {{emoji}}</div>
                             <div class="card-body">
-                                <p> Capital:<class="card-title">{{capital}}</p>
+                                <p> Capital: <class="card-title">{{capital}}</p>
                                 <p>{{iso3}}</p>
-                                <p>Region:{{region}}</p>
+                                <p>Region: {{region}}</p>
                                 <p>{{currency_name}} {{currency_symbol}}</p>
                                 <p>{{nationality}}</p>
 
-                                <a href="/paises/{{iso2}}/estados" class="btn btn-dark"> Detalles</a>
+                                <a href="/paises/{{iso2}}/estados"
+                                    class="btn btn-lg btn-light fw-bold border-dark bg-warning"> Detalles</a>
                             </div>
                         </div>
+
                         {{/each}}
+
                     </div>
 
                 </div>
@@ -57,17 +55,18 @@
 
 
 
-    {{!-- <div class="container ">
-        <div class="col-md-6 grid gap-2 ">
+    {{!-- <div class=" container ">
+        <div class=" col-md-6 grid gap-2 ">
             {{#each reponses}}
 
-            <div class="card">
+            <div class=" card">
                 <h1>{{emoji}}</h1>
                 <h5 class="card-body"> {{name}}</h5>
                 <p class="card-text"> {{capital}}</p>
                 <div class="justify-content-between ">
                     <div class="btn-group">
-                        <button href="/paises/{{iso2}}/estados" class="btn btn-dark"> Detalles</button>
+                        <button href="/paises/{{iso2}}/estados" class="btn btn-dark">
+                            Detalles</button>
 
                     </div>
                 </div>
